@@ -6,12 +6,12 @@ import javax.persistence.Persistence;
 
 import constants.JpaConst;
 
-public class DButil {
+public class DBUtil {
 
     private static EntityManagerFactory emf;
 
     //EntityManagerインスタンスを生成
-    public static EntityManager createEntitiManager() {
+    public static EntityManager createEntityManager() {
         return _getEntityManagerFactory().createEntityManager();
     }
 

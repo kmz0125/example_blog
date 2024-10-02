@@ -10,14 +10,10 @@ import constants.ForwardConst;
  * エラー発生時の処理を行うActionクラス
  *
  */
-
 public class UnknownAction extends ActionBase{
-
     /**
     * 共通エラー画面「お探しのページは見つかりませんでした。」を表示する
-    *
     */
-
     @Override
     public void process() throws ServletException, IOException {
 

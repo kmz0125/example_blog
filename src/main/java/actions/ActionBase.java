@@ -20,7 +20,6 @@ import constants.PropertyConst;
  *
  */
 public abstract class ActionBase {
-
     protected ServletContext context;
     protected HttpServletRequest request;
     protected HttpServletResponse response;
@@ -32,7 +31,6 @@ public abstract class ActionBase {
      * @param servletRequest
      * @param servletResponse
      */
-
     public void init(
             ServletContext servletContext,
             HttpServletRequest servletRequest,
@@ -66,6 +64,7 @@ public abstract class ActionBase {
             //commandに該当するメソッドを実行する
             commandMethod = this.getClass().getDeclaredMethod(command, new Class[0]);
             commandMethod.invoke(this, new Object[0]);//メソッドに渡す引数はなし
+
         } catch (NoSuchMethodException | SecurityException | IllegalAccessException | IllegalArgumentException
                 | InvocationTargetException | NullPointerException e) {
 
@@ -85,7 +84,7 @@ public abstract class ActionBase {
     protected void forward(ForwardConst target) throws ServletException, IOException {
 
         //jspファイルの相対パスを作成
-        String forward = String.format("/WEB_INF/views/%s.jsp", target.getValue());
+        String forward = String.format("/WEB-INF/views/%s.jsp", target.getValue());
         RequestDispatcher dispatcher = request.getRequestDispatcher(forward);
 
         //jspファイルの呼び出し
@@ -114,7 +113,7 @@ public abstract class ActionBase {
 
     /**
      * CSRF対策 token不正の場合はエラー画面を表示
-     * @return ture:token有効 false:token不正
+     * @return true:token有効 false:token不正
      * @throws ServletException
      * @throws IOException
      */
