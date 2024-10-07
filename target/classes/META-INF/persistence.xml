@@ -4,7 +4,7 @@
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/example_blg?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/example_blog?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
 			<property name="javax.persistence.jdbc.user" value="bluser"/>
 			<property name="javax.persistence.jdbc.password" value="blpass"/>
 			<property name="javax.persistence.schema-generation.database.action" value="create"/>

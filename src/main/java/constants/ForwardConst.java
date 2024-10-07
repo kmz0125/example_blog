@@ -6,7 +6,7 @@ package constants;
 public enum ForwardConst {
     //action
     ACT("action"),
-    ACT_TOP("Top"),
+    ACT_LOGIN("Login"),
     ACT_BLOG("Blog"),
 
     //command

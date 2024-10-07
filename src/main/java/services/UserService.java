@@ -33,6 +33,17 @@ public class UserService extends ServiceBase {
     }
 
     /**
+     * ユーザーテーブルのデータの件数を取得し、返却する
+     * @return ユーザーテーブルのデータの件数
+     */
+    public long countAll() {
+        long userCount = (long) em.createNamedQuery(JpaConst.Q_USER_COUNT, Long.class)
+                .getSingleResult();
+
+        return userCount;
+    }
+
+    /**
      * passwordを条件に取得したデータをUserViewのインスタンスで返却する
      * @param plainPass パスワード文字列
      * @param pepper pepper文字列
@@ -99,11 +110,11 @@ public class UserService extends ServiceBase {
      */
     public Boolean validateLogin(String plainPass, String pepper) {
 
-        boolean isValidUser=false;
-        if(plainPass !=null && !plainPass.equals("")) {
-            UserView uv=findOne(plainPass, pepper);
+        boolean isValidUser = false;
+        if (plainPass != null && !plainPass.equals("")) {
+            UserView uv = findOne(plainPass, pepper);
 
-            if(uv !=null && uv.getId() !=null) {
+            if (uv != null && uv.getId() != null) {
 
                 //データが取得できた場合、認証成功
                 isValidUser = true;
@@ -135,5 +146,4 @@ public class UserService extends ServiceBase {
         em.persist(UserConverter.toModel(uv));
         em.getTransaction().commit();
     }
-
 }

@@ -6,6 +6,9 @@ package constants;
  */
 public enum AttributeConst {
 
+    //フラッシュメッセージ
+    FLUSH("flush"),
+
     //一覧画面共通
     MAX_ROW("maxRow"),
     PAGE("page"),
@@ -22,6 +25,8 @@ public enum AttributeConst {
 
     //ユーザー管理
     USER("user"),
+    USERS("users"),
+    USER_COUNT("users_count"),
     USER_ID("id"),
     USER_PASS("password"),
 
