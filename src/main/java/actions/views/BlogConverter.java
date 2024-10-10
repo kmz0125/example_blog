@@ -25,7 +25,7 @@ public class BlogConverter {
                 bv.getImage(),
                 bv.getCreatedAt(),
                 bv.getUpdatedAt(),
-                bv.getBlog_user_id());
+                bv.getUser_id());
     }
 
     /**
@@ -75,6 +75,6 @@ public class BlogConverter {
         b.setImage(bv.getImage());
         b.setCreatedAt(bv.getCreatedAt());
         b.setUpdatedAt(bv.getUpdatedAt());
-        b.setBlog_user_id(bv.getBlog_user_id());
+        b.setBlog_user_id(bv.getUser_id());
     }
 }

@@ -4,15 +4,16 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-
-import com.mysql.cj.jdbc.Blob;
 
 import constants.JpaConst;
 import lombok.AllArgsConstructor;
@@ -70,8 +71,9 @@ public class Blog {
     /**
      * blog_image
      */
-    @Column(name=JpaConst.BLOG_COL_IMAGE)
-    private Blob image;
+    @Lob
+    @Column(name = "image", columnDefinition="BLOB")
+    private byte[] image;
 
     /**
      * 投稿日時
@@ -86,8 +88,9 @@ public class Blog {
     private LocalDateTime updatedAt;
 
     /**
-     * blog_user_id
+     * blog_user
      */
-    @Column(name=JpaConst.BLOG_COL_USER_ID, nullable=false)
-    private Integer blog_user_id;
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name=JpaConst.BLOG_COL_USER_ID, nullable=false)
+    private User blog_user_id;
 }

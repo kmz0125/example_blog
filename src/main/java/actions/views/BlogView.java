@@ -2,12 +2,11 @@ package actions.views;
 
 import java.time.LocalDateTime;
 
-import com.mysql.cj.jdbc.Blob;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import models.User;
 
 /**
  * Blog情報について画面の入力値・出力値を扱うViewモデル
@@ -37,7 +36,7 @@ public class BlogView {
     /**
      * blog_image
      */
-    private Blob image;
+    private byte[] image;
 
     /**
      * 登録日時
@@ -52,6 +51,6 @@ public class BlogView {
     /**
      * blog_user_id
      */
-    private Integer blog_user_id;
+    private User user_id;
 
 }

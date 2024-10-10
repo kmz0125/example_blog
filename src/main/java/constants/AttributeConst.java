@@ -36,8 +36,12 @@ public enum AttributeConst {
 
     //ブログ管理
     BLOG("blog"),
+    BLOG_COUNT("blog_count"),
+    BLOG_ID("blog_id"),
+    BLOG_DATE("blog_date"),
     BLOG_TITLE("blogTitle"),
-    BLOG_CONTENT("blogContent");
+    BLOG_CONTENT("blogContent"),
+    BLOG_IMAGE("blog_image");
 
     private final String text;
     private final Integer i;

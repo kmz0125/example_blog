@@ -13,7 +13,7 @@ public enum ForwardConst {
     CMD("command"),
     CMD_NONE(""),
     CMD_INDEX("index"),
-    CMD_SHOW_LOGIN("showLogin"),
+    CMD_SHOW("show"),
     CMD_LOGIN("login"),
     CMD_LOGOUT("logout"),
     CMD_CREATE("create"),
@@ -23,12 +23,12 @@ public enum ForwardConst {
 
     //jsp
     FW_ERR_UNKNOWN("error/unknown"),
-    FW_TOP_INDEX("topPage/index"),
+    FW_USER_INDEX("users/index"),
     FW_LOGIN("login/login"),
-    FW_BLOG_INDEX("blog/index"),
-    FW_BLOG_SHOW("blog/show"),
-    FW_BLOG_NEW("blog/new"),
-    FW_BLOG_EDIT("blog/edit");
+    FW_BLOG_INDEX("blogs/index"),
+    FW_BLOG_SHOW("blogs/show"),
+    FW_BLOG_NEW("blogs/new"),
+    FW_BLOG_EDIT("blogs/edit");
 
     /*
      * 文字列

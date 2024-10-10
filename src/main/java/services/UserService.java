@@ -24,7 +24,7 @@ public class UserService extends ServiceBase {
      * @return 表示するデータのリスト
      */
     public List<UserView> getPerPage(int page) {
-        List<User> users = em.createNamedQuery(JpaConst.Q_USER_GET_ALL_DEF, User.class)
+        List<User> users = em.createNamedQuery(JpaConst.Q_USER_GET_ALL, User.class)
                 .setFirstResult(JpaConst.ROW_PER_PAGE * (page - 1))
                 .setMaxResults(JpaConst.ROW_PER_PAGE)
                 .getResultList();

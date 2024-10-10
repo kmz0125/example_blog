@@ -60,9 +60,9 @@ public interface JpaConst {
     String Q_BLOG_COUNT_DEF = "SELECT COUNT(b) FROM Blog AS b";
     //指定したユーザーが作成したブログを全件idの降順で取得する
     String Q_BLOG_GET_ALL_MINE = ENTITY_BLOG + ".get.AllMine";
-    String Q_BLOG_GET_ALL_MINE_DEF = "SELECT b FROM Blog AS b WHERE b.user=:" + JPQL_PARM_USER + " ORDER BY b.id DESC";
+    String Q_BLOG_GET_ALL_MINE_DEF = "SELECT b FROM Blog AS b WHERE b.blog_user_id=:" + JPQL_PARM_USER + " ORDER BY b.id DESC";
     //指定したユーザーが作成したブログの件数を取得する
     String Q_BLOG_COUNT_ALL_MINE = ENTITY_BLOG + ".countAllMine";
-    String Q_BLOG_COUNT_ALL_MINE_DEF = "SELECT COUNT(b) FROM Blog AS b WHERE b.user=:" + JPQL_PARM_USER;
+    String Q_BLOG_COUNT_ALL_MINE_DEF = "SELECT COUNT(b) FROM Blog AS b WHERE b.blog_user_id=:" + JPQL_PARM_USER;
 
 }

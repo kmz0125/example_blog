@@ -1,6 +1,6 @@
 @charset "UTF-8";
 body {
-    color: rgb(192, 192, 192)e;
+    color: #000000;
     font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
 }
 
@@ -44,30 +44,51 @@ a {
     color: #000;
 }
 
-table, tr, th, td {
-    border: 1px solid #000;
-}
-
-table {
-    width: 100%;
-    table-layout: fixed;
-}
-
-th {
-    width: 26%;
-    padding: 10px 2%;
-}
-
-td {
-    width: 66%;
-    padding: 10px 2%;
-}
-
 button {
     font-size: 14px;
     padding: 5px 10px;
 }
 
+#top_image{
+    margin-bottom:10px;
+}
+
+#main_content{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px
+}
+
+article{
+    width: 74%;
+}
+
+aside{
+    width: 22%;
+}
+
+#profile{
+    margin-bottom: 10px;
+    padding: 12px 10px;
+}
+
+#category{
+    margin-bottom: 10px;
+    padding: 12px 10px;
+}
+
+#archive{
+    margin-bottom: 10px;
+    padding: 12px 10px;
+}
+
+
+#sub-title{
+    font-size: 20px;
+    border-bottom: 2px solid;
+}
+
 #footer {
     text-align: center;
+
 }

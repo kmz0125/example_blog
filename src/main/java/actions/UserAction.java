@@ -61,7 +61,7 @@ public class UserAction extends ActionBase {
         }
 
         //インデックス画面を表示
-        forward(ForwardConst.FW_TOP_INDEX);
+        forward(ForwardConst.FW_USER_INDEX);
 
     }
 }
