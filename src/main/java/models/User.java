@@ -25,13 +25,18 @@ import lombok.Setter;
 @Table(name = JpaConst.TABLE_USER)
 @NamedQueries({
         @NamedQuery(
-              //全てのユーザーのidを降順に取得する
+                //全てのユーザーのidを降順に取得する
                 name = JpaConst.Q_USER_GET_ALL,
                 query = JpaConst.Q_USER_GET_ALL_DEF),
         @NamedQuery(
-              //ハッシュ化済みパスワードを条件にユーザーを取得する
+                //全てのユーザーの件数を取得する
+                name = JpaConst.Q_USER_COUNT,
+                query = JpaConst.Q_USER_COUNT_DEF),
+        @NamedQuery(
+                //ハッシュ化済みパスワードを条件にユーザーを取得する
                 name = JpaConst.Q_USER_GET_BY_PASS,
                 query = JpaConst.Q_USER_GET_BY_PASS_DEF)
+
 })
 @Getter
 @Setter

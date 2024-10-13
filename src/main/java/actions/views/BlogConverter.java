@@ -21,6 +21,7 @@ public class BlogConverter {
         return new Blog(
                 bv.getId(),
                 bv.getTitle(),
+                bv.getBlogDate(),
                 bv.getContent(),
                 bv.getImage(),
                 bv.getCreatedAt(),
@@ -41,11 +42,12 @@ public class BlogConverter {
         return new BlogView(
                 b.getId(),
                 b.getTitle(),
+                b.getBlogDate(),
                 b.getContent(),
                 b.getImage(),
                 b.getCreatedAt(),
                 b.getUpdatedAt(),
-                b.getBlog_user_id());
+                b.getUser_id());
     }
 
     /**
@@ -71,10 +73,11 @@ public class BlogConverter {
     public static void copyViewToModel(Blog b, BlogView bv) {
         b.setId(bv.getId());
         b.setTitle(bv.getTitle());
+        b.setBlogDate(bv.getBlogDate());
         b.setContent(bv.getContent());
         b.setImage(bv.getImage());
         b.setCreatedAt(bv.getCreatedAt());
         b.setUpdatedAt(bv.getUpdatedAt());
-        b.setBlog_user_id(bv.getUser_id());
+        b.setUser_id(bv.getUser_id());
     }
 }

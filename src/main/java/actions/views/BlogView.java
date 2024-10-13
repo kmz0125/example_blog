@@ -1,5 +1,6 @@
 package actions.views;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import lombok.AllArgsConstructor;
@@ -27,6 +28,11 @@ public class BlogView {
      * blog_title
      */
     private String title;
+
+    /**
+     * いつのブログかを示す日付
+     */
+    private LocalDate blogDate;
 
     /**
      * blog_content

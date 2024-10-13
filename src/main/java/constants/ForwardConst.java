@@ -6,13 +6,14 @@ package constants;
 public enum ForwardConst {
     //action
     ACT("action"),
-    ACT_LOGIN("Login"),
+    ACT_USER("User"),
     ACT_BLOG("Blog"),
 
     //command
     CMD("command"),
     CMD_NONE(""),
     CMD_INDEX("index"),
+    CMD_NEW("entryNew"),
     CMD_SHOW("show"),
     CMD_LOGIN("login"),
     CMD_LOGOUT("logout"),
@@ -24,6 +25,7 @@ public enum ForwardConst {
     //jsp
     FW_ERR_UNKNOWN("error/unknown"),
     FW_USER_INDEX("users/index"),
+    FW_USER_NEW("users/new"),
     FW_LOGIN("login/login"),
     FW_BLOG_INDEX("blogs/index"),
     FW_BLOG_SHOW("blogs/show"),

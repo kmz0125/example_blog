@@ -4,6 +4,7 @@
 <%@ page import="constants.ForwardConst" %>
 
 <c:set var="actBlo" value="${ForwardConst.ACT_BLOG.getValue()}" />
+<c:set var="commNew" value="${ForwardConst.CMD_NEW.getValue()}" />
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
@@ -14,23 +15,22 @@
             </div>
         </c:if>
         <div id="top_image">
-            <img src=".../images/top_image.jpg">
-            <img src="../../../images/top_image.jpg" alt="トップ画像">
             <% String contextPath = request.getContextPath(); %> <img src="<%=contextPath%>/images/top_image.jpg" alt="トップ画像">
 
-        </div>
-        <div>
-        <%=contextPath%>
         </div>
 
         <div id="main_content">
             <article>
-            main content
+            <%@ include file="show.jsp" %>
             </article>
 
             <aside>
+            <div id="new-article">
+                <p><a href="<c:url value='?action=${actBlo}&command=${commNew}' />">ブログを書く</a></p>
+            </div>
                 <div id="profile">
                 <h3 id="sub-title">プロフィール</h3>
+                <% String contextPath2 = request.getContextPath(); %> <img src="<%=contextPath2%>/images/profile_icon.jpg" alt="プロフィール画像">
                 </div>
 
                 <div id="category">

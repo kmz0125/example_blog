@@ -18,10 +18,10 @@ public enum AttributeConst {
     ERR("errors"),
 
     //ログイン中のユーザー
-    LOGIN_USER("loguin_user"),
+    LOGIN_USER("login_user"),
 
     //ログイン画面
-    LOGIN_ERR("loguinError"),
+    LOGIN_ERR("loginError"),
 
     //ユーザー管理
     USER("user"),
@@ -36,11 +36,12 @@ public enum AttributeConst {
 
     //ブログ管理
     BLOG("blog"),
+    BLOGS("blogs"),
     BLOG_COUNT("blog_count"),
     BLOG_ID("blog_id"),
     BLOG_DATE("blog_date"),
-    BLOG_TITLE("blogTitle"),
-    BLOG_CONTENT("blogContent"),
+    BLOG_TITLE("blog_title"),
+    BLOG_CONTENT("blog_content"),
     BLOG_IMAGE("blog_image");
 
     private final String text;

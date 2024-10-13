@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import javax.persistence.Column;
@@ -62,6 +63,12 @@ public class Blog {
     private String title;
 
     /**
+     * いつのブログかを示す日付
+     */
+    @Column(name=JpaConst.BLOG_COL_DATE, nullable=false)
+    private LocalDate blogDate;
+
+    /**
      * blog_content
      */
     @Lob
@@ -92,5 +99,5 @@ public class Blog {
      */
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name=JpaConst.BLOG_COL_USER_ID, nullable=false)
-    private User blog_user_id;
+    private User user_id;
 }
