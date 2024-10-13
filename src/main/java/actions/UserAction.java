@@ -88,37 +88,40 @@ public class UserAction extends ActionBase {
      */
     public void create() throws ServletException, IOException {
 
-        //パラメータの値をもとにユーザーインスタンスを作成する
-        UserView uv = new UserView(
-                null,
-                getRequestParam(AttributeConst.USER_PASS),
-                null);
+        //CSRF対策 tokenのチェック
+        if (checkToken()) {
 
-        //アプリケーションスコープからpepper文字列を取得
-        String pepper = getContextScope(PropertyConst.PEPPER);
+            //パラメータの値を元にユーザーインスタンスを作成する
+            UserView uv = new UserView(
+                    null,
+                    getRequestParam(AttributeConst.USER_PASS),
+                    null);
 
-        //ユーザー情報登録
-        List<String> errors = service.create(uv, pepper);
+            //アプリケーションスコープからpepper文字列を取得
+            String pepper = getContextScope(PropertyConst.PEPPER);
 
-        if (errors.size() > 0) {
-            //登録中にエラーがあった場合
+            //ユーザー情報登録
+            List<String> errors = service.create(uv, pepper);
 
-            putRequestScope(AttributeConst.TOKEN, getTokenId());//CSFR対策用トークン
-            putRequestScope(AttributeConst.USER, uv);//入力されたユーザー情報
-            putRequestScope(AttributeConst.ERR, errors);//エラーのリスト
+            if (errors.size() > 0) {
+                //登録中にエラーがあった場合
 
-            //新規登録画面を再表示
-            forward(ForwardConst.FW_USER_NEW);
+                putRequestScope(AttributeConst.TOKEN, getTokenId());//CSFR対策用トークン
+                putRequestScope(AttributeConst.USER, uv);//入力されたユーザー情報
+                putRequestScope(AttributeConst.ERR, errors);//エラーのリスト
 
-        } else {
-            //登録中にエラーがなかった場合
+                //新規登録画面を再表示
+                forward(ForwardConst.FW_USER_NEW);
 
-            //セッションに登録完了のフラッシュメッセージを設定
-            putSessionScope(AttributeConst.FLUSH, MessageConst.I_REGISTERED.getMessage());
+            } else {
+                //登録中にエラーがなかった場合
 
-            //一覧画面にリダイレクト
-            redirect(ForwardConst.ACT_USER, ForwardConst.CMD_INDEX);
+                //セッションに登録完了のフラッシュメッセージを設定
+                putSessionScope(AttributeConst.FLUSH, MessageConst.I_REGISTERED.getMessage());
+
+                //一覧画面にリダイレクト
+                redirect(ForwardConst.ACT_USER, ForwardConst.CMD_INDEX);
+            }
         }
     }
-
 }
