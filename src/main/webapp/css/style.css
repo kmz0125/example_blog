@@ -108,7 +108,7 @@ aside{
     width: 22%;
 }
 
-#new-article a{
+#new_article a{
     background: #a6d1ec;
     border-radius: 3px;
     position: relative;
@@ -138,7 +138,7 @@ aside{
 }
 
 
-#sub-title{
+#sub_title{
     font-size: 20px;
     border-bottom: 2px solid;
 }

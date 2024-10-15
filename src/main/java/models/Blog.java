@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -46,6 +47,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@EntityListeners(User.class)
 public class Blog {
 
     /**
@@ -79,7 +81,7 @@ public class Blog {
      * blog_image
      */
     @Lob
-    @Column(name = "image", columnDefinition="BLOB")
+    @Column(name = "image", columnDefinition="BLOB", nullable=true)
     private byte[] image;
 
     /**
@@ -98,6 +100,6 @@ public class Blog {
      * blog_user
      */
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name=JpaConst.BLOG_COL_USER_ID, nullable=false)
+    @JoinColumn(name=JpaConst.BLOG_COL_USER_ID, nullable=true)
     private User user_id;
 }

@@ -1,6 +1,7 @@
 package actions;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -91,11 +92,14 @@ public class UserAction extends ActionBase {
         //CSRF対策 tokenのチェック
         if (checkToken()) {
 
+            //日付の取得
+            LocalDateTime now=LocalDateTime.now();
+
             //パラメータの値を元にユーザーインスタンスを作成する
             UserView uv = new UserView(
-                    null,
-                    getRequestParam(AttributeConst.USER_PASS),
-                    null);
+                    null,//id
+                    getRequestParam(AttributeConst.USER_PASS),//パスワード
+                    now);//登録日時
 
             //アプリケーションスコープからpepper文字列を取得
             String pepper = getContextScope(PropertyConst.PEPPER);

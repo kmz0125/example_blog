@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 import constants.JpaConst;
@@ -65,4 +66,10 @@ public class User {
     @Column(name = JpaConst.USER_COL_CREATED_AT, nullable = false)
     private LocalDateTime createdAt;
 
+    public class EntityOrderListener {
+        @PrePersist
+        public void prePersist(Object entity) {
+            // ここで優先順位を設定
+        }
+    }
 }

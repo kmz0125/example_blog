@@ -9,14 +9,15 @@
 
 <c:import url="/WEB-INF/views/layout/app.jsp">
     <c:param name="content">
+
         <c:if test="${flush != null}">
             <div id="flush_success">
                 <c:out value="${flush}"></c:out>
             </div>
         </c:if>
+
         <div id="top_image">
             <% String contextPath = request.getContextPath(); %> <img src="<%=contextPath%>/images/top_image.jpg" alt="トップ画像">
-
         </div>
 
         <div id="main_content">
@@ -25,20 +26,20 @@
             </article>
 
             <aside>
-            <div id="new-article">
+            <div id="new_article">
                 <p><a href="<c:url value='?action=${actBlo}&command=${commNew}' />">ブログを書く</a></p>
             </div>
                 <div id="profile">
-                <h3 id="sub-title">プロフィール</h3>
+                <h3 id="sub_title">プロフィール</h3>
                 <% String contextPath2 = request.getContextPath(); %> <img src="<%=contextPath2%>/images/profile_icon.jpg" alt="プロフィール画像">
                 </div>
 
                 <div id="category">
-                <h3 id="sub-title">カテゴリー</h3>
+                <h3 id="sub_title">カテゴリー</h3>
                 </div>
 
                 <div id="archive">
-                <h3 id="sub-title">アーカイブ</h3>
+                <h3 id="sub_title">アーカイブ</h3>
                 </div>
             </aside>
         </div>

@@ -38,7 +38,7 @@ public enum AttributeConst {
     BLOG("blog"),
     BLOGS("blogs"),
     BLOG_COUNT("blog_count"),
-    BLOG_ID("blog_id"),
+    BLOG_ID("id"),
     BLOG_DATE("blog_date"),
     BLOG_TITLE("blog_title"),
     BLOG_CONTENT("blog_content"),

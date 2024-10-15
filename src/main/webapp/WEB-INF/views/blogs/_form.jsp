@@ -11,7 +11,7 @@
         </c:forEach>
     </div>
 </c:if>
-<form action="upload_file" method="post" enctype="multipart/form-data">
+<form action="upload" method="post" enctype="multipart/form-data">
 <fmt:parseDate value="${blog.blogDate}" pattern="yyyy-MM-dd" var="blogDay" type="date" />
 <label for="${Attribute.Const.BLOG_DATE.getValue()}">日付</label><br />
 <input type="date" name="${AttributeConst.BLOG_DATE.getValue()}" id="${AttributeConst.BLOG_DATE.getValue()}" />
