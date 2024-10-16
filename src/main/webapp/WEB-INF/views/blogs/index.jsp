@@ -22,7 +22,8 @@
 
         <div id="main_content">
             <article>
-            <%@ include file="show.jsp" %>
+            <c:import url="/WEB-INF/views/blogs/show.jsp">
+            </c:import>
             </article>
 
             <aside>

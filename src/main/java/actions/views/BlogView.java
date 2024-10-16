@@ -57,6 +57,6 @@ public class BlogView {
     /**
      * blog_user_id
      */
-    private User user_id;
+    private User user;
 
 }

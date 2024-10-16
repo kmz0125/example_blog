@@ -9,6 +9,7 @@
 
         <c:out value="${blog.content}" />
 
+
             <p>
                 <a href="<c:url value='?action=${actBlo}&command=${commEdt}&id=${blog.id}' />">編集</a>
             </p>

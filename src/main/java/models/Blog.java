@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,7 +46,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@EntityListeners(User.class)
 public class Blog {
 
     /**
@@ -101,5 +99,5 @@ public class Blog {
      */
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name=JpaConst.BLOG_COL_USER_ID, nullable=true)
-    private User user_id;
+    private User user;
 }

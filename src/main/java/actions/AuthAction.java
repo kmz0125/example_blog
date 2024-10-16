@@ -63,7 +63,7 @@ public class AuthAction extends ActionBase {
         String pepper = getContextScope(PropertyConst.PEPPER);
 
         //有効なユーザーか認証する
-        Boolean isValidUser = service.validateLogin(plainPass, pepper);
+        Boolean isValidUser = service.validateLogin(id, plainPass, pepper);
 
         if (isValidUser) {
             //認証成功の場合
@@ -72,7 +72,7 @@ public class AuthAction extends ActionBase {
             if (checkToken()) {
 
                 //ログインしたユーザーのDBデータを取得
-                UserView uv = service.findOne(plainPass, pepper);
+                UserView uv = service.findOne(id, plainPass, pepper);
                 //セッションにログインしたユーザーを設定
                 putSessionScope(AttributeConst.LOGIN_USER, uv);
                 //セッションにログイン完了のフラッシュメッセージを設定

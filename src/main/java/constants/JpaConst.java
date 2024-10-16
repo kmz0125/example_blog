@@ -26,7 +26,7 @@ public interface JpaConst {
     String TABLE_COL_BLOG = "blog";//テーブル名
     //BlogTableColumun
     String BLOG_COL_ID = "id";//id
-    String BLOG_COL_USER_ID = "user_id";//ブログユーザーid
+    String BLOG_COL_USER_ID = "user";//ブログユーザーid
     String BLOG_COL_DATE = "blogdate";//いつのブログか示す日付
     String BLOG_COL_TITLE = "title";//タイトル
     String BLOG_COL_CONTENT = "content";//コンテンツ
@@ -60,10 +60,10 @@ public interface JpaConst {
     String Q_BLOG_COUNT_DEF = "SELECT COUNT(b) FROM Blog AS b";
     //指定したユーザーが作成したブログを全件idの降順で取得する
     String Q_BLOG_GET_ALL_MINE = ENTITY_BLOG + ".get.AllMine";
-    String Q_BLOG_GET_ALL_MINE_DEF = "SELECT b FROM Blog AS b WHERE b.user_id=:" + JPQL_PARM_USER
+    String Q_BLOG_GET_ALL_MINE_DEF = "SELECT b FROM Blog AS b WHERE b.user=:" + JPQL_PARM_USER
             + " ORDER BY b.id DESC";
     //指定したユーザーが作成したブログの件数を取得する
     String Q_BLOG_COUNT_ALL_MINE = ENTITY_BLOG + ".countAllMine";
-    String Q_BLOG_COUNT_ALL_MINE_DEF = "SELECT COUNT(b) FROM Blog AS b WHERE b.user_id=:" + JPQL_PARM_USER;
+    String Q_BLOG_COUNT_ALL_MINE_DEF = "SELECT COUNT(b) FROM Blog AS b WHERE b.user=:" + JPQL_PARM_USER;
 
 }

@@ -221,7 +221,7 @@ public class BlogAction extends ActionBase {
         //セッションからログイン中のユーザー情報を取得
         UserView uv = (UserView) getSessionScope(AttributeConst.LOGIN_USER);
 
-        if (bv == null || uv.getId() != bv.getUser_id().getId()) {
+        if (bv == null || uv.getId() != bv.getUser().getId()) {
             //該当のブログデータが存在しない、または
             //ログインしているユーザーがブログの作成者でない場合はエラー画面を表示
             forward(ForwardConst.FW_ERR_UNKNOWN);

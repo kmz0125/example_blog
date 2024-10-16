@@ -49,7 +49,7 @@ public class UserService extends ServiceBase {
      * @param pepper pepper文字列
      * @return 取得データのインスタンス 取得できない場合null
      */
-    public UserView findOne(String plainPass, String pepper) {
+    public UserView findOne(String id, String plainPass, String pepper) {
         User u = null;
         try {
             //パスワードのハッシュ化
@@ -108,11 +108,11 @@ public class UserService extends ServiceBase {
      * @param pepper pepper文字列
      * @return 認証結果を返却する(成功:true 失敗:false)
      */
-    public Boolean validateLogin(String plainPass, String pepper) {
+    public Boolean validateLogin(String id, String plainPass, String pepper) {
 
         boolean isValidUser = false;
         if (plainPass != null && !plainPass.equals("")) {
-            UserView uv = findOne(plainPass, pepper);
+            UserView uv = findOne(id, plainPass, pepper);
 
             if (uv != null && uv.getId() != null) {
 
