@@ -80,7 +80,7 @@ public class AuthAction extends ActionBase {
                 //トップページへリダイレクト
                 redirect(ForwardConst.ACT_TOP, ForwardConst.CMD_INDEX);
             }
-        }else {
+        } else {
             //認証失敗の場合
 
             //CSRF対策用のトークンを設定
@@ -93,6 +93,23 @@ public class AuthAction extends ActionBase {
             //ログイン画面を表示
             forward(ForwardConst.FW_LOGIN);
         }
+    }
+
+    /**
+     *ログアウト処理を行う
+     * @throws ServletException
+     * @throws IOException
+     */
+    public void logout() throws ServletException, IOException {
+
+        //セッションからログインユーザーのパラメータを削除
+        removeSessionScope(AttributeConst.LOGIN_USER);
+
+        //セッションにログアウトのフラッシュメッセージを追加
+        putSessionScope(AttributeConst.FLUSH, MessageConst.I_LOGOUT.getMessage());
+
+        //ログイン画面にリダイレクト
+        redirect(ForwardConst.ACT_AUTH, ForwardConst.CMD_SOW_LOGIN);
     }
 
 }

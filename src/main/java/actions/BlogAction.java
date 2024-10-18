@@ -1,17 +1,11 @@
 package actions;
 
-import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 
 import actions.views.BlogView;
 import actions.views.UserView;
@@ -25,9 +19,11 @@ import services.BlogService;
  * Blogに関する処理を行うActionクラス
  *
  */
+
+/**
 @WebServlet("/upload")
 @MultipartConfig(location = "/tmp", maxFileSize = 1048576)
-
+*/
 public class BlogAction extends ActionBase {
 
     private BlogService service;
@@ -57,7 +53,7 @@ public class BlogAction extends ActionBase {
         List<BlogView> blog = service.getAllPerPage(page);
 
         //全Blogデータの件数を取得
-        Long blogCount = service.countAll();
+        long blogCount = service.countAll();
 
         putRequestScope(AttributeConst.BLOG, blog);//取得したBlogデータ
         putRequestScope(AttributeConst.BLOG_COUNT, blogCount);//全てのBlogデータの件数
@@ -100,7 +96,7 @@ public class BlogAction extends ActionBase {
      * @param response
      * @throws ServletException
      * @throws IOException
-     */
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
@@ -125,6 +121,7 @@ public class BlogAction extends ActionBase {
         }
         return null;// ファイル名が見つからなければ null を返す
     }
+    */
 
     /**
      * 新規登録を行う
@@ -138,14 +135,15 @@ public class BlogAction extends ActionBase {
 
             //日報の日付が入力されていなければ、今日の日付を設定
             LocalDate day = null;
-            if (getRequestParam(AttributeConst.BLOG_DATE).equals("")) {
+            if (getRequestParam(AttributeConst.BLOG_DATE) == null
+                    || getRequestParam(AttributeConst.BLOG_DATE).equals("")) {
                 day = LocalDate.now();
             } else {
                 day = LocalDate.parse(getRequestParam(AttributeConst.BLOG_DATE));
             }
 
             //セッションからログイン中の従業員情報を取得
-            //UserView uv = (UserView)getSessionScope(AttributeConst.LOGIN_USER);
+            UserView uv = (UserView)getSessionScope(AttributeConst.LOGIN_USER);
 
             //日付の取得
             LocalDateTime now = LocalDateTime.now();
@@ -156,7 +154,7 @@ public class BlogAction extends ActionBase {
                     getRequestParam(AttributeConst.BLOG_TITLE), //title
                     day, //日付
                     getRequestParam(AttributeConst.BLOG_CONTENT), //content
-                    null, //image
+                    //null, //image
                     now, //createdAt
                     now, //updatedAt
                     getSessionScope(AttributeConst.LOGIN_USER));//user_id
@@ -194,6 +192,7 @@ public class BlogAction extends ActionBase {
 
         //idを条件にブログデータを取得する
         BlogView bv = service.findOne(toNumber(getRequestParam(AttributeConst.BLOG_ID)));
+
         if (bv == null) {
             //該当のブログデータが存在しない場合はエラー画面を表示
             forward(ForwardConst.FW_ERR_UNKNOWN);

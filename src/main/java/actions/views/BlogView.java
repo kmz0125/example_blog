@@ -41,8 +41,9 @@ public class BlogView {
 
     /**
      * blog_image
-     */
+
     private byte[] image;
+     */
 
     /**
      * 登録日時

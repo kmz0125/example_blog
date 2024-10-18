@@ -4,12 +4,14 @@ body {
     font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
 }
 
+/*header----------------------------------------------------------*/
 #header {
     width: 100%;
     height: 45px;
-    background-color: #fff;
+    background-color: black;
 }
 
+/*content----------------------------------------------------------*/
 #content {
     width: 94%;
     margin-top: 15px;
@@ -18,15 +20,19 @@ body {
 
 h1 {
     width: 94%;
-    padding-top: 17px;
+    padding-top: 7px;
     padding-left: 3%;
-    font-size: 24px;
-    color: #000;
+    font-size: 20px;
+    color: white;
 }
 
 h2 {
     font-size: 36px;
     margin-bottom: 15px;
+}
+
+h3{
+    font-size: 25px;
 }
 
 table#user_list th {
@@ -55,7 +61,6 @@ table#user_list td {
     width: 29%;
     padding: 10px 2%;
 }
-
 tr.row1 {
         background-color: #f2f2f2;
 }
@@ -76,6 +81,7 @@ p {
 a {
     text-decoration: none;
     color: #000;
+    pointer-events: none;
 }
 
 button {
@@ -83,48 +89,72 @@ button {
     padding: 5px 10px;
 }
 
+/*top_image----------------------------------------------------------*/
 #top_image{
     margin-bottom:10px;
 }
 
 #top_image img{
     width: 100%;
-    height: 300px;
+    height: 250px;
     object-fit: cover;
     object-position: 60% 60%;
 }
 
+/*main_content----------------------------------------------------------*/
 #main_content{
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px
+    margin-bottom: 10px;
+    padding: 0 100px;
 }
 
+/*article(blog_article)----------------------------------------------------------*/
 article{
     width: 74%;
+    padding: 0 10px;
 }
 
+#blog_article{
+    border-radius: 10px;
+    padding: 5px 30px;
+    border: 2px solid;
+    margin-bottom:30px;
+}
+#blog_title{
+    border-bottom: 1px solid;
+}
+
+#blog_date{
+    padding: 10px 0;
+    font-size: 15px;
+    text-align: right;
+}
+
+/*aside----------------------------------------------------------*/
 aside{
     width: 22%;
+    border-left: 2px solid;
 }
-
+/*新規投稿*/
 #new_article a{
-    background: #a6d1ec;
+    background: black;
+    color: white;
     border-radius: 3px;
-    position: relative;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 0 auto;
-    max-width: 200px;
-    padding: 10px 25px;
-    font: white;
+    margin: 15px 15px;
+    padding: 10px 20px;
     text-decoration: none;
 }
 
+/*サイドバー*/
 #profile{
     margin-bottom: 10px;
     padding: 12px 10px;
+}
+
+#profile_img{
+    text-align: center;
+
 }
 
 #category{
@@ -137,13 +167,15 @@ aside{
     padding: 12px 10px;
 }
 
-
 #sub_title{
     font-size: 20px;
     border-bottom: 2px solid;
 }
 
+/*footer----------------------------------------------------------*/
 #footer {
     text-align: center;
+    background-color: black;
+    color: white;
 
 }

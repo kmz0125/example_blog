@@ -11,21 +11,23 @@
         </c:forEach>
     </div>
 </c:if>
-<form action="upload" method="post" enctype="multipart/form-data">
+
 <fmt:parseDate value="${blog.blogDate}" pattern="yyyy-MM-dd" var="blogDay" type="date" />
 <label for="${Attribute.Const.BLOG_DATE.getValue()}">日付</label><br />
-<input type="date" name="${AttributeConst.BLOG_DATE.getValue()}" id="${AttributeConst.BLOG_DATE.getValue()}" />
+<input type="date" name="${AttributeConst.BLOG_DATE.getValue()}" id="${AttributeConst.BLOG_DATE.getValue()}" value="<fmt:formatDate value='${blogDay}' pattern='yyyy-MM-dd' />" />
 <br /><br />
 
 <label for="${AttributeConst.BLOG_TITLE.getValue()}">タイトル</label><br />
 <input type="text" name="${AttributeConst.BLOG_TITLE.getValue()}" id="${AttributeConst.BLOG_TITLE.getValue()}" value="${blog.title}" />
 <br /><br />
 
-
+<!--
+<form action="upload" method="post" enctype="multipart/form-data">
 <label>画像</label>
 <input type="file" name="img">
-
+</form>
 <br /><br />
+-->
 
 <label for="${AttributeConst.BLOG_CONTENT.getValue()}">内容</label><br />
 <textarea name="${AttributeConst.BLOG_CONTENT.getValue()}" id="${AttributeConst.BLOG_CONTENT.getValue()}" rows="10" cols="50">${blog.content}</textarea>
@@ -33,4 +35,3 @@
 <input type="hidden" name="${AttributeConst.BLOG_ID.getValue()}" value="${blog.id}" />
 <input type="hidden" name="${AttributeConst.TOKEN.getValue()}" value="${_token}" />
 <button type="submit">投稿</button>
-</form>

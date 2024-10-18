@@ -77,10 +77,11 @@ public class Blog {
 
     /**
      * blog_image
-     */
+
     @Lob
     @Column(name = "image", columnDefinition="BLOB", nullable=true)
     private byte[] image;
+    */
 
     /**
      * 投稿日時

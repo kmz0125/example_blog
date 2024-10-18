@@ -28,19 +28,26 @@
 
             <aside>
             <div id="new_article">
-                <p><a href="<c:url value='?action=${actBlo}&command=${commNew}' />">ブログを書く</a></p>
+                <p><a href="<c:url value='?action=${actBlo}&command=${commNew}' />">coming soon...</a></p>
             </div>
                 <div id="profile">
                 <h3 id="sub_title">プロフィール</h3>
-                <% String contextPath2 = request.getContextPath(); %> <img src="<%=contextPath2%>/images/profile_icon.jpg" alt="プロフィール画像">
+                <div id="profile_img">
+                    <% String contextPath2 = request.getContextPath(); %> <img src="<%=contextPath2%>/images/profile_icon.jpg" alt="プロフィール画像">
+                </div>
+                <p>テキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキスト
+                テキストテキストテキストテキストテキストテキストテキスト</p>
                 </div>
 
                 <div id="category">
                 <h3 id="sub_title">カテゴリー</h3>
+                <p>coming soon...</p>
                 </div>
 
                 <div id="archive">
                 <h3 id="sub_title">アーカイブ</h3>
+                <p>coming soon...</p>
                 </div>
             </aside>
         </div>

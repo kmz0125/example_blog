@@ -7,12 +7,12 @@
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/example_blog?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;useUnicode=true&amp;characterEncoding=utf8"/>
-            <property name="javax.persistence.jdbc.user" value="bluser"/>
-            <property name="javax.persistence.jdbc.password" value="blpass"/>
-            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="javax.persistence.schema-generation.database.action" value="update"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
+            <property name="javax.persistence.jdbc.user" value="bluser"/>
+             <property name="javax.persistence.jdbc.password" value="blpass"/>
         </properties>
     </persistence-unit>
 </persistence>
