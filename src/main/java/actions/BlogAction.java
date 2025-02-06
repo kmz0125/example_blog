@@ -8,7 +8,6 @@ import java.util.List;
 import javax.servlet.ServletException;
 
 import actions.views.BlogView;
-import actions.views.UserView;
 import constants.AttributeConst;
 import constants.ForwardConst;
 import constants.JpaConst;
@@ -20,10 +19,6 @@ import services.BlogService;
  *
  */
 
-/**
-@WebServlet("/upload")
-@MultipartConfig(location = "/tmp", maxFileSize = 1048576)
-*/
 public class BlogAction extends ActionBase {
 
     private BlogService service;
@@ -91,40 +86,7 @@ public class BlogAction extends ActionBase {
     }
 
     /**
-     *画像のアップロード
-     * @param request
-     * @param response
-     * @throws ServletException
-     * @throws IOException
-
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-
-        BlogView bv = new BlogView();
-
-        Part part = request.getPart("img");// 画像ファイルを取得
-        String fileName = getFileName(part);// ファイル名の取得
-        String uploadPath = System.getProperty("java.io.tmpdir"); // 一時ディレクトリ
-        part.write(uploadPath + File.separator + fileName);// ファイルを指定パスに保存
-        byte[] imageBytes = part.getInputStream().readAllBytes(); // 画像をバイト配列に変換
-        bv.setImage(imageBytes); // BlogViewインスタンスに画像をセット
-
-        response.sendRedirect("view/index.jsp");// アップロード完了後にリダイレクト
-    }
-
-    private String getFileName(Part part) {
-        String contentDisposition = part.getHeader("content-disposition");// Content-Dispositionヘッダーを取得
-        for (String token : contentDisposition.split(";")) {// ヘッダーの値をセミコロンで分割
-            if (token.trim().startsWith("filename")) {//"filename" で始まる部分を探す
-                return token.substring(token.indexOf('=') + 1).trim().replace("\"", "");// ファイル名を抽出
-            }
-        }
-        return null;// ファイル名が見つからなければ null を返す
-    }
-    */
-
-    /**
-     * 新規登録を行う
+     * 新しい記事を書く
      * @throws ServletException
      * @throws IOException
      */
@@ -142,9 +104,6 @@ public class BlogAction extends ActionBase {
                 day = LocalDate.parse(getRequestParam(AttributeConst.BLOG_DATE));
             }
 
-            //セッションからログイン中の従業員情報を取得
-            UserView uv = (UserView)getSessionScope(AttributeConst.LOGIN_USER);
-
             //日付の取得
             LocalDateTime now = LocalDateTime.now();
 
@@ -154,11 +113,8 @@ public class BlogAction extends ActionBase {
                     getRequestParam(AttributeConst.BLOG_TITLE), //title
                     day, //日付
                     getRequestParam(AttributeConst.BLOG_CONTENT), //content
-                    //null, //image
                     now, //createdAt
-                    now, //updatedAt
-                    getSessionScope(AttributeConst.LOGIN_USER));//user_id
-
+                    now); //updatedAt
             //ブログ情報登録
             List<String> errors = service.create(bv);
 
@@ -214,26 +170,8 @@ public class BlogAction extends ActionBase {
      */
     public void edit() throws ServletException, IOException {
 
-        //idを条件にブログデータを取得する
-        BlogView bv = service.findOne(toNumber(getRequestParam(AttributeConst.BLOG_ID)));
-
-        //セッションからログイン中のユーザー情報を取得
-        UserView uv = (UserView) getSessionScope(AttributeConst.LOGIN_USER);
-
-        if (bv == null || uv.getId() != bv.getUser().getId()) {
-            //該当のブログデータが存在しない、または
-            //ログインしているユーザーがブログの作成者でない場合はエラー画面を表示
-            forward(ForwardConst.FW_ERR_UNKNOWN);
-
-        } else {
-
-            putRequestScope(AttributeConst.TOKEN, getTokenId()); //CSRF対策用トークン
-            putRequestScope(AttributeConst.BLOG, bv); //取得したブログデータ
-
             //編集画面を表示
             forward(ForwardConst.FW_BLOG_EDIT);
-        }
-
     }
 
     /**

@@ -3,12 +3,8 @@
 <%@ page import="constants.ForwardConst" %>
 <%@ page import="constants.AttributeConst" %>
 
-<c:set var="actUser" value="${ForwardConst.ACT_USER.getValue()}" />
 <c:set var="actBlo" value="${ForwardConst.ACT_BLOG.getValue()}" />
-<c:set var="actAuth" value="${ForwardConst.ACT_AUTH.getValue()}" />
-
 <c:set var="commIdx" value="${ForwardConst.CMD_INDEX.getValue()}" />
-<c:set var="commOut" value="${ForwardConst.CMD_LOGOUT.getValue()}" />
 
 <!DOCTYPE html>
 <html lang=ja>

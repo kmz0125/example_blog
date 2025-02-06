@@ -42,7 +42,7 @@ public class BlogValidator {
      */
     private static String validateTitle(String title) {
         if (title == null || title.equals("")) {
-            return MessageConst.B_NOIITLE.getMessage();
+            return MessageConst.E_NOTITLE.getMessage();
         }
 
         //入力値がある場合は空文字を返却
@@ -56,7 +56,7 @@ public class BlogValidator {
      */
     private static String validateContent(String content) {
         if (content == null || content.equals("")) {
-            return MessageConst.B_NOCONTENT.getMessage();
+            return MessageConst.E_NOCONTENT.getMessage();
         }
 
         //入力値がある場合は空文字を返却

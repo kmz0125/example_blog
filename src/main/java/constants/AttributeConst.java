@@ -17,32 +17,13 @@ public enum AttributeConst {
     TOKEN("_token"),
     ERR("errors"),
 
-    //ログイン中のユーザー
-    LOGIN_USER("login_user"),
-
-    //ログイン画面
-    LOGIN_ERR("loginError"),
-
-    //ユーザー管理
-    USER("user"),
-    USERS("users"),
-    USER_COUNT("users_count"),
-    USER_ID("id"),
-    USER_PASS("password"),
-
-    //削除フラグ
-    DEL_FLAG_TRUE(1),
-    DEL_FLAG_FALSE(0),
-
     //ブログ管理
     BLOG("blog"),
-    BLOGS("blogs"),
     BLOG_COUNT("blog_count"),
     BLOG_ID("id"),
     BLOG_DATE("blog_date"),
     BLOG_TITLE("blog_title"),
-    BLOG_CONTENT("blog_content"),
-    BLOG_IMAGE("blog_image");
+    BLOG_CONTENT("blog_content");
 
     private final String text;
     private final Integer i;

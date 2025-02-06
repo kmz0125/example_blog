@@ -6,21 +6,14 @@ package constants;
  */
 public enum MessageConst {
 
-    //認証
-    I_LOGINED("ログインしました。"),
-    E_LOGINED("ログインに失敗しました。"),
-    I_LOGOUT("ログアウトしました。"),
-
     //DB更新
-    I_REGISTERED("登録が完了しました。"),
+    I_REGISTERED("新規記事の投稿が完了しました。"),
     I_UPDATED("更新が完了しました。"),
     I_DELETED("削除が完了しました。"),
 
     //バリデーション
-    U_NONAME("userIDを入力してください。"),
-    U_NOPASSWORD("パスワードを入力してください。"),
-    B_NOIITLE("タイトルを入力してください。"),
-    B_NOCONTENT("内容を入力してください");
+    E_NOTITLE("タイトルを入力してください。"),
+    E_NOCONTENT("内容を入力してください");
 
     /**
      * 文字列

@@ -13,16 +13,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import constants.AttributeConst;
 import constants.ForwardConst;
-import constants.PropertyConst;
 
 /**
  * 各Actionクラスの親クラス、共通処理を行う
  *
  */
+
+/**
+ * HttpServletRequest と HttpServletResponse はフロントコントローラの doGet メソッドおよび doPost メソッドの引数の内容
+ * パラメータの受け渡しや、Jspの呼び出し、リダイレクト処理で使用
+ */
 public abstract class ActionBase {
-    protected ServletContext context;
-    protected HttpServletRequest request;
-    protected HttpServletResponse response;
+    protected ServletContext context;//Webアプリケーションのコンテキスト情報
+    protected HttpServletRequest request;//リクエスト情報のオブジェクト
+    protected HttpServletResponse response;//レスポンス情報のオブジェクト
 
     /**
      * 初期化処理
@@ -31,6 +35,8 @@ public abstract class ActionBase {
      * @param servletRequest
      * @param servletResponse
      */
+
+    //各クラスのフィールドの値を設定
     public void init(
             ServletContext servletContext,
             HttpServletRequest servletRequest,
@@ -143,7 +149,7 @@ public abstract class ActionBase {
 
     /**
      * リクエストから表示を要求されているページ数を取得し、返却する
-     * @return 要求されているぺ＾時数（要求がない場合は1）
+     * @return 要求されているページ数（要求がない場合は1）
      */
     protected int getPage() {
         int page;
@@ -225,13 +231,4 @@ public abstract class ActionBase {
         request.getSession().removeAttribute(key.getValue());
     }
 
-    /**
-     * アプリケーションスコープから指定されたパラメータの値を取得し、返却する
-     * @param key パラメータ名
-     * @return パラメータの値
-     */
-    @SuppressWarnings("unchecked")
-    protected <R> R getContextScope(PropertyConst key) {
-        return (R) context.getAttribute(key.getValue());
-    }
 }

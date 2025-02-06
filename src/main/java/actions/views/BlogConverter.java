@@ -23,10 +23,8 @@ public class BlogConverter {
                 bv.getTitle(),
                 bv.getBlogDate(),
                 bv.getContent(),
-                //bv.getImage(),
                 bv.getCreatedAt(),
-                bv.getUpdatedAt(),
-                bv.getUser());
+                bv.getUpdatedAt());
     }
 
     /**
@@ -45,10 +43,8 @@ public class BlogConverter {
                 b.getTitle(),
                 b.getBlogDate(),
                 b.getContent(),
-                //b.getImage(),
                 b.getCreatedAt(),
-                b.getUpdatedAt(),
-                b.getUser());
+                b.getUpdatedAt());
     }
 
     /**
@@ -76,9 +72,7 @@ public class BlogConverter {
         b.setTitle(bv.getTitle());
         b.setBlogDate(bv.getBlogDate());
         b.setContent(bv.getContent());
-        //b.setImage(bv.getImage());
         b.setCreatedAt(bv.getCreatedAt());
         b.setUpdatedAt(bv.getUpdatedAt());
-        b.setUser(bv.getUser());
     }
 }

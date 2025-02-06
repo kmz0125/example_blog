@@ -7,10 +7,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import models.User;
 
 /**
- * Blog情報について画面の入力値・出力値を扱うViewモデル
+ * ブログ情報について画面の入力値・出力値を扱うViewモデル
  *
  */
 @Getter
@@ -40,12 +39,6 @@ public class BlogView {
     private String content;
 
     /**
-     * blog_image
-
-    private byte[] image;
-     */
-
-    /**
      * 登録日時
      */
     private LocalDateTime createdAt;
@@ -54,10 +47,4 @@ public class BlogView {
      * 更新日時
      */
     private LocalDateTime updatedAt;
-
-    /**
-     * blog_user_id
-     */
-    private User user;
-
 }

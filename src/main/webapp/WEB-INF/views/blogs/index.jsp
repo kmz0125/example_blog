@@ -28,7 +28,7 @@
 
             <aside>
             <div id="new_article">
-                <p><a href="<c:url value='?action=${actBlo}&command=${commNew}' />">coming soon...</a></p>
+                <p><a href="<c:url value='?action=${actBlo}&command=${commNew}' />">ブログを書く</a></p>
             </div>
                 <div id="profile">
                 <h3 id="sub_title">プロフィール</h3>
