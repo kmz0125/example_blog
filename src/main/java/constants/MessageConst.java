@@ -9,7 +9,6 @@ public enum MessageConst {
     //DB更新
     I_REGISTERED("新規記事の投稿が完了しました。"),
     I_UPDATED("更新が完了しました。"),
-    I_DELETED("削除が完了しました。"),
 
     //バリデーション
     E_NOTITLE("タイトルを入力してください。"),

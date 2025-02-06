@@ -39,11 +39,24 @@
             </div>
         </c:forEach>
     </c:when>
-
     <c:otherwise>
         <p>ブログ記事がありません。</p>
     </c:otherwise>
-
 </c:choose>
+
+    <div id="pagenation">
+        (全 ${blog_count} 件) <br>
+        <c:forEach var="i" begin="1" end="${((blog_count - 1) / maxRow) + 1}" step="1">
+            <c:choose>
+                <c:when test="${i ==page}">
+                    <c:out value="${i}" />&nbsp;
+                </c:when>
+                <c:otherwise>
+                    <a href="<c:url value='?action=${actBlo}&command=${commIdx}&page=${i}' />"><c:out value="${i}" /></a>&nbsp;
+                </c:otherwise>
+            </c:choose>
+        </c:forEach>
+    </div>
+
 </body>
 </html>
